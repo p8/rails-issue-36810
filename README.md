@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Reproduces the bug in issue 36810
+https://github.com/rails/rails/issues/36810
 
-Things you may want to cover:
+## Steps 
 
-* Ruby version
+* Create a background job: 
 
-* System dependencies
+   HardWorker.perform_async('bob', 5)
 
-* Configuration
+* Run `bundle exec sidekiq`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Job runs on Rails master but does not run on Rails 6.0.3
